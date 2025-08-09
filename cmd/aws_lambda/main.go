@@ -4,10 +4,12 @@ import (
 	"context"
 	"log"
 	"tvfrontalgwservice/app/enqueue"
-	"tvfrontalgwservice/app/handler"
 	"tvfrontalgwservice/app/infrastructure"
 	"tvfrontalgwservice/app/processor"
 	serviceconfig "tvfrontalgwservice/config"
+	route "tvfrontalgwservice/route/bn"
+	routehealthcheck "tvfrontalgwservice/route/health_check"
+	routeupdateconfig "tvfrontalgwservice/route/update_config"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -31,8 +33,9 @@ func init() {
 
 	go _enqueue.Do()
 
-	handler := handler.NewHandler(_enqueue)
-	echo_app.POST("/timeframe-exe-interval", handler.NewTradeHandler)
+	route.BnBot(echo_app, _enqueue)
+	routeupdateconfig.UpdateAWSAppConfig(echo_app, config)
+	routehealthcheck.HealthCheck(echo_app)
 
 	echoLambda = echoadapter.New(echo_app)
 }

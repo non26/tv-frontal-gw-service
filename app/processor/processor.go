@@ -31,7 +31,11 @@ func NewProcessor(
 func (p *processor) ProcessTask(path string, body []byte) error {
 	switch path {
 	case p.bnBotFtConfig.NewOrderEndpoint:
-		p.infrastructure.NewOrder(context.Background(), body)
+		p.newOrder(context.Background(), body)
+	case p.bnBotFtConfig.ActivateBotEndpoint:
+		p.activateBot(context.Background(), body)
+	case p.bnBotFtConfig.DeactivateBotEndpoint:
+		p.deactivateBot(context.Background(), body)
 	}
 	return nil
 }

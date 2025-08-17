@@ -11,7 +11,7 @@ type HealthCheckResponse struct {
 }
 
 func HealthCheck(app *echo.Echo) {
-	app.GET("/health", func(c echo.Context) error {
+	app.GET("/health-check", func(c echo.Context) error {
 		return c.JSON(http.StatusOK, HealthCheckResponse{Message: "OK"})
 	})
 }

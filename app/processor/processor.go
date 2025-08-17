@@ -9,6 +9,8 @@ import (
 type IProcessor interface {
 	ProcessTask(path string, body []byte) error
 	newOrder(ctx context.Context, body []byte)
+	activateBot(ctx context.Context, body []byte)
+	deactivateBot(ctx context.Context, body []byte)
 }
 
 type processor struct {

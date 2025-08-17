@@ -15,6 +15,8 @@ type IHandler interface {
 	GetRequestBody(ctx echo.Context) ([]byte, error)
 	GetPath(ctx echo.Context) string
 	NewTradeHandler(ctx echo.Context) error
+	ActivateBotHandler(ctx echo.Context) error
+	DeactivateBotHandler(ctx echo.Context) error
 }
 
 type handler struct {

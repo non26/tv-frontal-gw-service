@@ -7,6 +7,8 @@ import (
 
 type IInfrastructure interface {
 	NewOrder(ctx context.Context, body []byte)
+	ActivateBot(ctx context.Context, body []byte)
+	DeactivateBot(ctx context.Context, body []byte)
 }
 
 type infrastructure struct {

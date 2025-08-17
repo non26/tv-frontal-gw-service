@@ -7,15 +7,17 @@ type AppConfig struct {
 }
 
 type BnBotFt struct {
-	BaseUrl          string
-	NewOrderEndpoint string
+	BaseUrl               string `mapstructure:"baseUrl" json:"baseUrl"`
+	NewOrderEndpoint      string `mapstructure:"newOrderEndpoint" json:"newOrderEndpoint"`
+	ActivateBotEndpoint   string `mapstructure:"activateBotEndpoint" json:"activateBotEndpoint"`
+	DeactivateBotEndpoint string `mapstructure:"deactivateBotEndpoint" json:"deactivateBotEndpoint"`
 }
 
 type Queue struct {
-	Size int
+	Size int `mapstructure:"size" json:"size"`
 }
 
 type Server struct {
-	Port int
-	Env  string
+	Port int    `mapstructure:"port" json:"port"`
+	Env  string `mapstructure:"env" json:"env"`
 }

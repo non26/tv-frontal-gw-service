@@ -12,5 +12,6 @@ func BnBot(app *echo.Echo, enqueue enqueue.IEnqueue) {
 	app.POST("/timeframe-exe-interval", handler.NewTradeHandler)
 	app.POST("/activate-bot", handler.ActivateBotHandler)
 	app.POST("/deactivate-bot", handler.DeactivateBotHandler)
+	app.POST("/tv-activation", handler.TvActivationHandler)
 
 }

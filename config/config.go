@@ -11,6 +11,7 @@ type BnBotFt struct {
 	NewOrderEndpoint      string `mapstructure:"newOrderEndpoint" json:"newOrderEndpoint"`
 	ActivateBotEndpoint   string `mapstructure:"activateBotEndpoint" json:"activateBotEndpoint"`
 	DeactivateBotEndpoint string `mapstructure:"deactivateBotEndpoint" json:"deactivateBotEndpoint"`
+	TvActivationEndpoint  string `mapstructure:"tvActivationEndpoint" json:"tvActivationEndpoint"`
 }
 
 type Queue struct {

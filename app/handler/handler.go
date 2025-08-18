@@ -17,6 +17,7 @@ type IHandler interface {
 	NewTradeHandler(ctx echo.Context) error
 	ActivateBotHandler(ctx echo.Context) error
 	DeactivateBotHandler(ctx echo.Context) error
+	TvActivationHandler(ctx echo.Context) error
 }
 
 type handler struct {

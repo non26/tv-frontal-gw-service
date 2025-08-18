@@ -11,6 +11,7 @@ type IProcessor interface {
 	newOrder(ctx context.Context, body []byte)
 	activateBot(ctx context.Context, body []byte)
 	deactivateBot(ctx context.Context, body []byte)
+	tvActivation(ctx context.Context, body []byte)
 }
 
 type processor struct {
@@ -36,6 +37,8 @@ func (p *processor) ProcessTask(path string, body []byte) error {
 		p.activateBot(context.Background(), body)
 	case p.bnBotFtConfig.DeactivateBotEndpoint:
 		p.deactivateBot(context.Background(), body)
+	case p.bnBotFtConfig.TvActivationEndpoint:
+		p.tvActivation(context.Background(), body)
 	}
 	return nil
 }
